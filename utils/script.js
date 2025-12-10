@@ -3,8 +3,7 @@ const password = document.getElementById("password")
 const check_password = document.getElementById("check_password")
 const form_ins = document.getElementById("form_ins")
 
-form_ins.addEventListener("submit", function(e) {
-  e.preventDefault();
+form_ins.addEventListener("submit", function() {
 
   const regexname = /^[a-zA-Z\s]{3,}$/;
   const regexpassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/;
@@ -20,7 +19,7 @@ form_ins.addEventListener("submit", function(e) {
     return;
   }
   else if (check_password.value !== password.value) {
-    alert("error");
+    alert("Passwords do not match!");
     check_password.style.border = "2px solid red";
     return;
   }
