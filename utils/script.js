@@ -9,12 +9,12 @@ form_ins.addEventListener("submit", function() {
   const regexpassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/;
 
   if (!regexname.test(username.value.trim())) {
-    alert("error");
+    alert("entrez name");
     username.style.border = "2px solid red";
     return;
   } 
  else if (!regexpassword.test(password.value.trim())) {
-    alert("error");
+    alert("entrez password");
     password.style.border = "2px solid red";
     return;
   }

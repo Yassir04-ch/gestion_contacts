@@ -1,12 +1,13 @@
 
 <?php include('utils/header.php');?>
 <?php
-$sql = "SELECT * FROM `contact`" ;
+$sql = "SELECT * FROM `contact`  JOIN `users` ON user_id = users.id " ;
 $result = mysqli_query($conn,$sql)
 ?>
 
 
    <h1 class="text-center col-12 bg-primary py-3 text-white my-2">All contacts</h1>
+    <a class="btn btn-primary  py-2" href="addcont.php">add contact</a>
     <div class="row">
         <div class="col-sm-12">
             <table class="table">
@@ -39,9 +40,6 @@ $result = mysqli_query($conn,$sql)
 
                     <?php endwhile; ?>
                 <?php endif; ?>
-
-            
-                
                 </tbody>
             </table>
         </div>
