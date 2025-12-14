@@ -7,24 +7,27 @@ include('utils/validation.php');
 if(isset($_POST['submit'])) {
             $namecon =     santString($_POST['namecon']);
             $email =    santString($_POST['email']);
+            $valemail = valideamil($email);
             $phone =    santString($_POST['phone']);
             $address =    santString($_POST['address']);
+            $user_id = $_SESSION['id'];
       if(requiredInput($namecon) &&  requiredInput($email) && requiredInput($phone) && requiredInput($address))
             {
                 if(minInput($namecon,3))
                 {
-                        $sql = "INSERT INTO `contact` (`name`,`phone`,`email`,`address`)
-                        VALUES ('$name','$email','$phone','$address') ";
+                        $sql = "INSERT INTO `contact` (`name`,`phone`,`email`,`address`,`user_id`)
+                        VALUES ('$namecon','$email','$phone','$address','$user_id') ";
 
                         $result = mysqli_query($conn,$sql);
 
                         if($result)
                         {
-                            $success = "Added Successfully ";
-                            header("refresh:2;url=contacts.php");
+                            header("refresh:2;url=contact.php");
+                            $success = "Added Successfully";
                         }
-                    
-
+                     else {
+                    $error = "Name Must Be Grater Than 3 Chars and validate email";
+                }
                 }
                 else 
                 {
@@ -45,8 +48,6 @@ if(isset($_POST['submit'])) {
       echo "<h5 class='alert alert-danger text-center'>$error</h5>";
      }
  ?>
-
-
     <?php 
     if($success){  
         echo "<h5 class='alert alert-success text-center'>$success</h5>";
@@ -58,7 +59,7 @@ if(isset($_POST['submit'])) {
         <form class="my-2 p-3 border" id="form_con" method="POST" action="addcont.php">
             <div class="form-group">
                 <label for="namecon">Full Name</label>
-                <input type="text" name="name" class="form-control" id="namecon" >
+                <input type="text" name="namecon" class="form-control" id="namecon" >
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
@@ -72,7 +73,7 @@ if(isset($_POST['submit'])) {
                 <label for="address">address</label>
                 <input type="address" name="address" class="form-control" id="address">
             </div>
-            <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+            <button type="submit" class="btn btn-primary btn-translate" name="submit">Submit</button>
         </form>
     </div>
    

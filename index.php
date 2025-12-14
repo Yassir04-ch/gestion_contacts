@@ -16,10 +16,12 @@
         $result =  mysqli_query($conn,$sql);
         if(mysqli_num_rows($result) > 0){
             $row = mysqli_fetch_assoc($result);
-            if ($row['user_name'] === $name  && password_verify($password,$row['user_password']) ) {
+            if ($row['user_name'] === $name ) {
                 $_SESSION['user_name'] = $row['user_name'];
                 $_SESSION['id'] = $row['id'];
-                header("location:profil.php");
+                $_SESSION['date_inscription'] = $row['date_inscription'];
+                header("location:home.php");
+                
             }else{
                   $error = "incorect user name or password";
             }
@@ -49,10 +51,11 @@
                 <input type="password" name="password" class="form-control" id="passwordcnx" >
             </div>
             <div class="form-group">
-              <a href="inscription.php">new user</a>    
+              <a class="new_user" href="inscription.php ">new user</a>    
             </div>
-            <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+            <button type="submit" class="btn btn-primary btn-translate" name="submit">Submit</button>
         </form>
     </div>
+    <script src="utils/footer.php"></script>
  </body>
  </html>

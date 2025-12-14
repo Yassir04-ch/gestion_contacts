@@ -1,0 +1,12 @@
+body{
+    background-image: linear-gradient(to right , #2e6bc6 , #93a6c1);
+}
+label{
+    color: white;
+}
+a.new_user{
+    color: black;
+}
+tr td {
+    color:white
+}

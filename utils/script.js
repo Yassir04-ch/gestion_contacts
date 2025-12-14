@@ -3,24 +3,29 @@ const password = document.getElementById("password")
 const check_password = document.getElementById("check_password")
 const form_ins = document.getElementById("form_ins")
 
-form_ins.addEventListener("submit", function() {
+
 
   const regexname = /^[a-zA-Z\s]{3,}$/;
   const regexpassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/;
+  const regexphone = /^[0-9]{10}$/;
+  const regexemail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
+
+  // validation form inscription
+form_ins.addEventListener("submit", function(e) {
   if (!regexname.test(username.value.trim())) {
     alert("entrez name");
-    username.style.border = "2px solid red";
+    e.preventDefault();
     return;
   } 
  else if (!regexpassword.test(password.value.trim())) {
-    alert("entrez password");
-    password.style.border = "2px solid red";
+    alert("entrez password like Yassir123@ ");
+    e.preventDefault();
     return;
   }
   else if (check_password.value !== password.value) {
     alert("Passwords do not match!");
-    check_password.style.border = "2px solid red";
+    e.preventDefault();
     return;
   }
    else {
@@ -29,5 +34,34 @@ form_ins.addEventListener("submit", function() {
     check_password.style.border = "2px solid green";
   }
 });
+//  validation form add contact
+const form_con = document.getElementById("form_con");
+const namecon = document.getElementById("namecon");
+const email = document.getElementById("email");
+const phone = document.getElementById("phone");
+const address = document.getElementById("address");
+
+form_con.addEventListener("submit",function(e){
+   if (!regexname.test(namecon.value.trim())) {
+    alert("entrez name");
+    e.preventDefault();
+    return;
+  }
+  else if (!regexemail.test(email.value.trim())) {
+    alert("entrez email");
+    e.preventDefault();
+    return;
+  } 
+ else if (!regexphone.test(phone.value.trim())) {
+    alert("entrez number Phone");
+    e.preventDefault();
+    return;
+  }
+  if (!regexname.test(address.value.trim())) {
+    alert("entrez address");
+    e.preventDefault();
+    return;
+  }
+})
 
 
