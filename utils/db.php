@@ -1,8 +1,7 @@
-<?php 
-     $servername = "localhost";
-     $username = "root";
-     $password = "";
-     $dbname = "gestion_contacts";
-
-     $conn = mysqli_connect($servername,$username,$password,$dbname);
-   
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "gestion_contacts";
+$dsn = "mysql:host=$servername;dbname=$dbname;charset=utf8";
+$conn = new PDO($dsn,$username,$password);

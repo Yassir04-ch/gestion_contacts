@@ -1,8 +1,8 @@
 body{
-    background-image: linear-gradient(to right , #2e6bc6 , #93a6c1);
+ background-color: rgba(169, 168, 168, 0.676);
 }
 label{
-    color: white;
+    color: rgb(0, 0, 0);
 }
 a.new_user{
     color: black;

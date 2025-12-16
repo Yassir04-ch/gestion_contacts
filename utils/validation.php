@@ -37,10 +37,4 @@ function santsemail($email){
     return $email;
 }
 
-function valideamil($email){
-    if(filter_var($email,FILTER_VALIDATE_EMAIL)){
-        return true;
-    }
-    return false;
-}
 ?>

@@ -20,6 +20,9 @@ $date = $_SESSION['date_inscription'];
                     <div class="d-flex justify-content-center my-3">
                         <a class="btn btn-primary" href="contact.php">Contacts</a>
                     </div>
+                     <div class="d-flex justify-content-center my-3">
+                        <a class="btn btn-danger" href="log_out.php">LOG OUT</a>
+                    </div>
                 </div>
             </div>
         </div>

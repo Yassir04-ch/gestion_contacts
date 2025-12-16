@@ -7,7 +7,7 @@ include('utils/validation.php');
 if(isset($_POST['submit'])) {
             $namecon =     santString($_POST['namecon']);
             $email =    santString($_POST['email']);
-            $valemail = valideamil($email);
+            $valemail = santsemail($email);
             $phone =    santString($_POST['phone']);
             $address =    santString($_POST['address']);
             $user_id = $_SESSION['id'];
@@ -16,11 +16,10 @@ if(isset($_POST['submit'])) {
                 if(minInput($namecon,3))
                 {
                         $sql = "INSERT INTO `contact` (`name`,`phone`,`email`,`address`,`user_id`)
-                        VALUES ('$namecon','$email','$phone','$address','$user_id') ";
-
-                        $result = mysqli_query($conn,$sql);
-
-                        if($result)
+                        VALUES (?,?,?,?,?) ";
+                        $stmt = $conn->prepare($sql);
+                        $stmt->execute([$namecon,$phone,$valemail,$address,$user_id]);
+                        if($stmt->rowCount() > 0)
                         {
                             header("refresh:2;url=contact.php");
                             $success = "Added Successfully";
@@ -74,6 +73,8 @@ if(isset($_POST['submit'])) {
                 <input type="address" name="address" class="form-control" id="address">
             </div>
             <button type="submit" class="btn btn-primary btn-translate" name="submit">Submit</button>
+            <a class="btn btn-primary" href="contact.php">GO Back</a>
+
         </form>
     </div>
    
