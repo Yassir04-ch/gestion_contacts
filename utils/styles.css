@@ -1,3 +1,8 @@
+*{
+    padding: 0;
+    margin:0 ;
+    box-sizing: border-box;
+}
 body{
  background-color: rgba(169, 168, 168, 0.676);
 }
@@ -7,6 +12,10 @@ label{
 a.new_user{
     color: black;
 }
-tr td {
-    color:white
+section.hero{
+    background-image: url(../imag/heroimg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
 }

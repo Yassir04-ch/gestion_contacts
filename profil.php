@@ -2,7 +2,8 @@
 session_start();
 include('utils/header.php');
 
-$name = $_SESSION['user_name'];
+$firstname = $_SESSION['firstname_user'];
+$lastname = $_SESSION['lastname_user'];
 $date = $_SESSION['date_inscription'];
 ?>
 
@@ -12,9 +13,9 @@ $date = $_SESSION['date_inscription'];
             <div class="card shadow-sm">
                 <div class="card-body text-center">
                     <h2 class="card-title">Profile</h2>
-                    <h3 class="card-title">Hello <?php echo $name ?></h3>
+                    <h3 class="card-title">Hello <?php echo $firstname ?></h3>
                     <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" class="rounded-circle img-fluid w-25 mb-3">
-                    <p class="card-text"><strong>name : </strong><?php echo $name ?></p>
+                    <p class="card-text"><strong>Name : </strong><?php echo $firstname ." ".$lastname ?></p>
                     <p class="card-text"><strong>registration date : </strong><?php echo $date ?></p>
 
                     <div class="d-flex justify-content-center my-3">

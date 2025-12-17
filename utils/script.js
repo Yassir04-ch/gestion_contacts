@@ -1,5 +1,7 @@
-const username = document.getElementById("name")
+const fname = document.getElementById("fname")
+const lname = document.getElementById("lname")
 const password = document.getElementById("password")
+const user_email = document.getElementById("user_email")
 const check_password = document.getElementById("check_password")
 const form_ins = document.getElementById("form_ins")
 
@@ -13,7 +15,17 @@ const form_ins = document.getElementById("form_ins")
 
   // validation form inscription
 form_ins.addEventListener("submit", function(e) {
-  if (!regexname.test(username.value.trim())) {
+  if (!regexname.test(fname.value.trim())) {
+    alert("entrez name");
+    e.preventDefault();
+    return;
+  }  
+ else if (!regexname.test(lname.value.trim())) {
+    alert("entrez name");
+    e.preventDefault();
+    return;
+  } 
+  else if (!regexemail.test(user_email.value.trim())) {
     alert("entrez name");
     e.preventDefault();
     return;

@@ -5,27 +5,28 @@ include('utils/header.php');
 include('utils/validation.php');
 
 if(isset($_POST['submit'])) {
-            $namecon =     santString($_POST['namecon']);
+            $fnamecon =     santString($_POST['fnamecon']);
+            $lnamecon =     santString($_POST['lnamecon']);
             $email =    santString($_POST['email']);
             $valemail = santsemail($email);
             $phone =    santString($_POST['phone']);
             $address =    santString($_POST['address']);
             $user_id = $_SESSION['id'];
-      if(requiredInput($namecon) &&  requiredInput($email) && requiredInput($phone) && requiredInput($address))
+      if(requiredInput($fnamecon) && requiredInput($lnamecon) &&  requiredInput($email) && requiredInput($phone) && requiredInput($address))
             {
-                if(minInput($namecon,3))
+                if(minInput($fnamecon,3) && minInput($fnamecon,3))
                 {
-                        $sql = "INSERT INTO `contact` (`name`,`phone`,`email`,`address`,`user_id`)
-                        VALUES (?,?,?,?,?) ";
+                        $sql = "INSERT INTO `contact` (`firstname`,`lastname`,`email`,`phone`,`address`,`user_id`)
+                        VALUES (?,?,?,?,?,?) ";
                         $stmt = $conn->prepare($sql);
-                        $stmt->execute([$namecon,$phone,$valemail,$address,$user_id]);
+                        $stmt->execute([$fnamecon,$lnamecon,$valemail,$phone,$address,$user_id]);
                         if($stmt->rowCount() > 0)
                         {
                             header("refresh:2;url=contact.php");
                             $success = "Added Successfully";
                         }
                      else {
-                    $error = "Name Must Be Grater Than 3 Chars and validate email";
+                    $error = "FirstName And LastName Must Be Grater Than 3 Chars and validate email";
                 }
                 }
                 else 
@@ -57,8 +58,12 @@ if(isset($_POST['submit'])) {
     <div class="col-md-6 offset-md-3">
         <form class="my-2 p-3 border" id="form_con" method="POST" action="addcont.php">
             <div class="form-group">
-                <label for="namecon">Full Name</label>
-                <input type="text" name="namecon" class="form-control" id="namecon" >
+                <label for="namecon">First Name</label>
+                <input type="text" name="fnamecon" class="form-control" id="fnamecon" >
+            </div>
+             <div class="form-group">
+                <label for="namecon">Last Name</label>
+                <input type="text" name="lnamecon" class="form-control" id="lnamecon" >
             </div>
             <div class="form-group">
                 <label for="email">Email</label>

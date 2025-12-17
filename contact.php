@@ -19,10 +19,11 @@ $stmt->execute([':id'=>$user_id]);
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Name</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
                         <th scope="col">Email</th>
-                        <th scope="col">phone</th>
-                        <th scope="col">address</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Address</th>
                         <th scope="col">Edit</th>
                         <th scope="col">Delete</th>
                     </tr>
@@ -30,7 +31,8 @@ $stmt->execute([':id'=>$user_id]);
                 <tbody>
                     <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
                         <tr>
-                            <td><?php echo $row['name']; ?></td>
+                            <td><?php echo $row['firstname']; ?></td>
+                            <td><?php echo $row['lastname']; ?></td>
                             <td><?php echo $row['email']; ?></td>
                             <td><?php echo $row['phone']; ?></td>
                             <td><?php echo $row['address']; ?></td>

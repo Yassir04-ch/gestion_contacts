@@ -9,13 +9,6 @@ function requiredInput($value){
     }
     return false;
 }
-function validate($data){
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-}
-
 function santString($value){
     $str = trim($value);
     $str = filter_var($str,FILTER_SANITIZE_SPECIAL_CHARS);

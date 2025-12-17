@@ -3,19 +3,21 @@ include('utils/validation.php');
 include('utils/db.php');
 include('utils/header1.php');
 if(isset($_POST['submit'])) {
-            $name =     santString($_POST['name']);
+            $fname =     santString($_POST['fname']);
+            $lname =     santString($_POST['lname']);
             $password =    santString($_POST['password']);
+            $email_user = santsemail($_POST['email_user']);
             
             $check_password =   santString($_POST['chek_password']);
-      if(requiredInput($name) &&  requiredInput($password) &&  requiredInput($check_password))
+      if(requiredInput($fname) && requiredInput($lname) &&  requiredInput($password) &&  requiredInput($check_password) && requiredInput($email_user))
             {
-                if(minInput($name,3) && minInput($password,6) && $password === $check_password)
+                if(minInput($fname,3)  && minInput($lname,3) && minInput($password,6) && $password === $check_password)
                 {
                        $hash_password = password_hash($password,PASSWORD_DEFAULT);
-                        $sql = "INSERT INTO `users` (`user_name`,`user_password`)
-                        VALUES (?,?)  ";
+                        $sql = "INSERT INTO `users` (`firstname_user`,`lastname_user`,`email_user`,`password_user`)
+                        VALUES (?,?,?,?)  ";
                        $stmt = $conn->prepare($sql);
-                       $stmt->execute([$name,$hash_password]);
+                       $stmt->execute([$fname,$lname,$email_user,$hash_password]);
                         if($stmt->rowCount() > 0)
                         {     
                             $success = "Your account has been registered";
@@ -37,7 +39,7 @@ if(isset($_POST['submit'])) {
 
 ?>
  
-    <h1 class="text-center col-12 bg-info py-3 text-white my-2">Add New User</h1>
+    <h1 class="text-center col-12 bg-info py-3 text-white my-2">New User</h1>
    <?php
      if ($error) {
       echo "<h5 class='alert alert-danger text-center'>$error</h5>";
@@ -51,8 +53,16 @@ if(isset($_POST['submit'])) {
     <div class="col-md-6 offset-md-3">
         <form class="my-2 p-3 border" id="form_ins" method="POST" action="inscription.php">
             <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" name="name" class="form-control" id="name" >
+                <label for="name">First Name</label>
+                <input type="text" name="fname" class="form-control" id="fname" >
+            </div>
+            <div class="form-group">
+                <label for="name">Last Name</label>
+                <input type="text" name="lname" class="form-control" id="lname" >
+            </div>
+            <div class="form-group">
+                <label for="name">Email</label>
+                <input type="email" name="email_user" class="form-control" id="user_email" >
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
