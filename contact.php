@@ -6,6 +6,7 @@ $user_id = $_SESSION['id'];
 $sql = "SELECT * FROM `contact` WHERE user_id = :id";
 $stmt = $conn->prepare($sql);
 $stmt->execute([':id'=>$user_id]);
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <h2 class="text-center col-12 bg-primary py-3 text-white my-1">All contacts</h2>
@@ -29,7 +30,7 @@ $stmt->execute([':id'=>$user_id]);
                     </tr>
                 </thead>
                 <tbody>
-                    <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
+                    <?php foreach ($rows as $row): ?>
                         <tr>
                             <td><?php echo $row['firstname']; ?></td>
                             <td><?php echo $row['lastname']; ?></td>
@@ -44,13 +45,12 @@ $stmt->execute([':id'=>$user_id]);
                             </td>
                         </tr>
 
-                    <?php endwhile; ?>
+                    <?php endforeach; ?>
 
                 </tbody>
             </table>
         </div>
     </div>
  <?php endif; ?>
-
 
     <?php include('utils/footer.php'); ?>
