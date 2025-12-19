@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <section class="hero">
+<section class="hero">
     <div class="hero_link">
     <a href="login.php"><button>LOGIN</button></a>
     <a href="inscription.php" class="link"><button>Inscription</button></a>

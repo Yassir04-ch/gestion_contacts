@@ -16,17 +16,17 @@ const form_ins = document.getElementById("form_ins")
   // validation form inscription
 form_ins.addEventListener("submit", function(e) {
   if (!regexname.test(fname.value.trim())) {
-    alert("entrez name");
+    alert("entrez first name");
     e.preventDefault();
     return;
   }  
  else if (!regexname.test(lname.value.trim())) {
-    alert("entrez name");
+    alert("entrez last name");
     e.preventDefault();
     return;
   } 
   else if (!regexemail.test(user_email.value.trim())) {
-    alert("entrez name");
+    alert("entrez email");
     e.preventDefault();
     return;
   } 
@@ -55,7 +55,7 @@ const address = document.getElementById("address");
 
 form_con.addEventListener("submit",function(e){
    if (!regexname.test(namecon.value.trim())) {
-    alert("entrez name");
+    alert("entrez name contact");
     e.preventDefault();
     return;
   }

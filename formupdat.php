@@ -17,11 +17,16 @@ include('utils/validation.php');
 
  <h1 class="text-center col-12 bg-primary py-3 text-white my-2">Edit Info About contact</h1>
     <div class="col-md-6 offset-md-3">
-        <form class="my-2 p-3 border" id="form_con" method="POST" action="updat.php">
+        <form class="my-2 p-3 border" id="form_con" method="POST" action="logic/updat.php">
             <div class="form-group">
-                <label for="namecon">Full Name</label>
-                <input type="text" name="namecon" class="form-control" id="namecon" value=<?php echo $row['name']?> >
-                <input type="hidden" value ="<?php echo $id ?>"  name="id" />
+                <label for="fnamecon">Full Name</label>
+                <input type="text" name="fnamecon" class="form-control" id="namecon" value=<?php echo $row['firstname']?> >
+                <input type="hidden" value ="<?php echo $id ?>"  name="id">
+            </div>
+            <div class="form-group">
+                <label for="lnamecon">Full Name</label>
+                <input type="text" name="lnamecon" class="form-control" id="namecon" value=<?php echo $row['lastname']?> >
+                <input type="hidden" value ="<?php echo $id ?>"  name="id">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>

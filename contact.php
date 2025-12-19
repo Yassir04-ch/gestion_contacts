@@ -8,7 +8,7 @@ $stmt = $conn->prepare($sql);
 $stmt->execute([':id'=>$user_id]);
 ?>
 
-<h2 class="text-center col-12 bg-primary py-3 text-white my-2">All contacts</h2>
+<h2 class="text-center col-12 bg-primary py-3 text-white my-1">All contacts</h2>
 <a class="btn btn-primary btn-translate  py-2" href="addcont.php">add contact</a>
 
 <?php if ($stmt->rowCount() <= 0): ?>
@@ -37,10 +37,10 @@ $stmt->execute([':id'=>$user_id]);
                             <td><?php echo $row['phone']; ?></td>
                             <td><?php echo $row['address']; ?></td>
                             <td>
-                                <a class="btn btn-info" href="formupdat.php?id=<?php echo $row['id']; ?>">edit</a>
+                                <a class="btn btn-info" href="formupdat.php?id=<?= $row['id']; ?>">edit</a>
                             </td>
                             <td>
-                                <a class="btn btn-danger" href="delete.php?id=<?php echo $row['id']; ?>">X</a>
+                                <a class="btn btn-danger" href="delete.php?id=<?= $row['id']; ?>">X</a>
                             </td>
                         </tr>
 
