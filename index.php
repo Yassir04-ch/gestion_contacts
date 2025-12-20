@@ -14,7 +14,7 @@ session_start();
 </head>
 <body class="index">
 <section class="hero">
-    <h1 class="hero_titel">Welcome To Connect Flow </h1>
+    <h1 class="hero_titel">Bienvenue sur Connect Flow </h1>
 
   <div class="content">
    <img class="hero_img" src="imag/de9c2e51b4e742677b9fc4ec7c35c50f.jpg">
