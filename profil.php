@@ -8,13 +8,13 @@ $date = $_SESSION['date_inscription'];
 $email = $_SESSION['email_user'];
 ?>
 
-<div class="container my-5 ">
+<div class="container my-1 ">
     <div class="row justify-content-center ">
-        <div class="col-md-6">
-            <div class="card shadow-sm">
-                <div class="card-body text-center">
+        <div class="profil">
+            <div class="profil card shadow-sm">
+                <div class="profil card-body text-center">
                     <h2 class="card-title">Profile</h2>
-                    <h3 class="card-title">Hello <?php echo $firstname ?></h3>
+                    <h3 >Hello <?php echo $firstname ?></h3>
                     <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" class="rounded-circle img-fluid w-25 mb-3">
                     <p class="card-text"><strong>Name : </strong><?php echo $firstname ." ".$lastname ?></p>
                     <p class="card-text"><strong>registration date : </strong><?php echo $date ?></p>

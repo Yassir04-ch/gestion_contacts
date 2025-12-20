@@ -1,4 +1,9 @@
-
+<?php 
+session_start();
+ if (isset($_SESSION['id'])) {
+    header("Location: profil.php");
+ }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,14 +12,21 @@
     <link rel="stylesheet" href="utils/styles.css">
     <title>Document</title>
 </head>
-<body>
+<body class="index">
 <section class="hero">
-    <div class="hero_link">
-    <a href="login.php"><button>LOGIN</button></a>
-    <a href="inscription.php" class="link"><button>Inscription</button></a>
-   </div>
     <h1 class="hero_titel">Welcome To Connect Flow </h1>
-    <p>gestion des contact</p>
+
+  <div class="content">
+   <img class="hero_img" src="imag/de9c2e51b4e742677b9fc4ec7c35c50f.jpg">
+    <div class="hero_link">
+    <p>Gestion des contact</p>
+    <p>Bienvenue sur notre site,</p>
+    <p> Notre plateforme vous offre des outils et des services innovants adaptés à vos besoins.</p>
+    <p> Inscrivez-vous gratuitement et accédez à une expérience complète et personnalisée.</p>
+    <a href="login.php"><button>LOGIN</button></a>
+    <a href="inscription.php" ><button >Inscription</button></a>
+  </div>
+ </div>
 </section>
     
 </body>
