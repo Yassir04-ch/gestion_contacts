@@ -4,6 +4,7 @@
  session_start();
 if(!isset($_POST['submit'])){
     header("Location:../login.php");
+    exit();
  } 
 
     $emailinp = $_POST['user_email'];

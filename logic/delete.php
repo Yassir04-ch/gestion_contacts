@@ -23,5 +23,5 @@ if (isset($_GET['id'])) {
 
 <h1 class="text-center col-12 bg-info py-3 text-white my-2">DELETE USER</h1>
 <h3 class='alert alert-success text-center'><?php echo " Delete " . $row['firstname'] ." ".$row['lastname'] ;
-    header('refresh:3;url=contact.php');?></h3>
+    header('refresh:2;url=contact.php');?></h3>
 <?php include('utils/footer.php'); ?>

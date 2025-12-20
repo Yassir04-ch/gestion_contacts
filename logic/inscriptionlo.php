@@ -5,6 +5,7 @@ require('../utils/db.php');
 
 if(!isset($_POST['submit'])) {
     header("Location:../inscription.php");
+    exit();
  }
 
             $fname =     santString($_POST['fname']);

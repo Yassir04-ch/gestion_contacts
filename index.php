@@ -17,7 +17,7 @@ session_start();
     <h1 class="hero_titel">Bienvenue sur Connect Flow </h1>
 
   <div class="content">
-   <img class="hero_img" src="imag/de9c2e51b4e742677b9fc4ec7c35c50f.jpg">
+   <img class="hero_img" src="imag/img1.jpg">
     <div class="hero_link">
     <p>Gestion des contact</p>
     <p>Bienvenue sur notre site,</p>

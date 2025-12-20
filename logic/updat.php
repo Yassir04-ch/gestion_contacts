@@ -5,6 +5,7 @@ include('../utils/header.php');
 
 if (!isset($_POST['submit'])) {
     header('Location:../formupdat.php');
+    exit();
 }
     $id = $_POST['id'];
     $phone = $_POST['phone'];

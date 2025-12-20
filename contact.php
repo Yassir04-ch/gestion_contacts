@@ -5,7 +5,7 @@ include('utils/header.php');
 $user_id = $_SESSION['id'];
 $sql = "SELECT * FROM `contact` WHERE user_id = :id";
 $stmt = $conn->prepare($sql);
-$stmt->execute([':id'=>$user_id]);
+$stmt->execute([':id' => $user_id]);
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
@@ -13,7 +13,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <a class="btn btn-primary btn-translate  py-2" href="addcont.php">add contact</a>
 
 <?php if ($stmt->rowCount() <= 0): ?>
-<h3 class="alert alert-warning text-center my-3" role="alert">No contacts to display. Add a contact</h3>
+    <h3 class="alert alert-warning text-center my-3" role="alert">No contacts to display. Add a contact</h3>
 <?php else: ?>
     <div class="row">
         <div class="col-sm-12">
@@ -32,16 +32,16 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <tbody>
                     <?php foreach ($rows as $row): ?>
                         <tr>
-                            <td><?php echo $row['firstname']; ?></td>
-                            <td><?php echo $row['lastname']; ?></td>
-                            <td><?php echo $row['email']; ?></td>
-                            <td><?php echo $row['phone']; ?></td>
-                            <td><?php echo $row['address']; ?></td>
+                            <td><?= htmlspecialchars($row['firstname']); ?></td>
+                            <td><?= htmlspecialchars($row['lastname']); ?></td>
+                            <td><?= htmlspecialchars($row['email']); ?></td>
+                            <td><?= htmlspecialchars($row['phone']); ?></td>
+                            <td><?= htmlspecialchars($row['address']); ?></td>
                             <td>
                                 <a class="btn btn-info" href="formupdat.php?id=<?= $row['id']; ?>">edit</a>
                             </td>
                             <td>
-                                <a class="btn btn-danger" href="delete.php?id=<?= $row['id']; ?>">X</a>
+                                <a class="btn btn-danger" href="logic/delete.php?id=<?= $row['id']; ?>">X</a>
                             </td>
                         </tr>
 
@@ -51,6 +51,6 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </table>
         </div>
     </div>
- <?php endif; ?>
+<?php endif; ?>
 
-    <?php include('utils/footer.php'); ?>
+<?php include('utils/footer.php'); ?>
