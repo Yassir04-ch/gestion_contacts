@@ -5,11 +5,32 @@
 }
 body{
  background-color: rgba(169, 168, 168, 0.676);
-  overflow: hidden;
 }
 label{
     color: rgb(243, 236, 236);
 }
+
+/* add contact  */
+ .contact-form {
+        background: #b6b4b4;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    .contact-form h3 {
+        font-weight: bold;
+        color: #0d6efd;
+    }
+    .form-control {
+        border-radius: 10px;
+    }
+    .form-control:focus {
+        box-shadow: none;
+        border-color: #0d6efd;
+    }
+    .btn {
+        border-radius: 20px;
+        padding: 8px 20px;
+    }
 h2.titel_login{
     color: white;
 }
@@ -25,10 +46,24 @@ body.info{
     background-repeat: no-repeat;
 }
 
-tr th, tr td{
-    color:white
+/* contacts */
+tr td{
+    color:rgb(1, 1, 1)
 }
- 
+  table {
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    thead th {
+        text-transform: uppercase;
+        font-size: 13px;
+    }
+    tbody tr:hover {
+        background-color: #f8f9fa;
+        transition: 0.2s;
+    }
+    
+/* index page  */
 section.hero a button {
     color: rgba(255, 255, 255, 0.744);
     background-color: rgb(52, 143, 255);
@@ -68,6 +103,8 @@ h1.hero_titel{
 div.hero_link{
     background-image:linear-gradient(to right , rgba(30, 28, 28, 0.817) , grey);
     padding: 20px;
+    position:relative;
+    left: 40%;
     height: fit-content;
     border-radius: 10px;
     box-shadow: 0 0 30px rgb(32, 23, 23) ;
@@ -80,4 +117,7 @@ div.profil{
     background-color: rgba(211, 220, 220, 0.571);
     border-radius: 20px;
     box-shadow: 0 0 30px rgb(230, 230, 230) ;
+}
+body.index{
+    overflow: hidden;
 }

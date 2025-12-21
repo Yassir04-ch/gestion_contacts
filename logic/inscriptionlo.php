@@ -25,8 +25,7 @@ if(!isset($_POST['submit'])) {
                        $stmt->execute([$fname,$lname,$email_user,$hash_password]);
                         if($stmt->rowCount() > 0)
                         {     
-                            $success = "Your account has been registered";
-                            header("refresh:2;url=../login.php");
+                            header("Location:../login.php");
                         }
                     
 
@@ -34,21 +33,13 @@ if(!isset($_POST['submit'])) {
                 else 
                 {
                     $error = "Name Must Be Grater Than 3 Chars / Password like Yassir123@";
-                    header("refresh:2;url=../inscription.php");
+                            header("Location:../login.php");
                       
                 }
             }
             else 
             {
                 $error =  "Please Fill All  Fields !";
-                header("refresh:2;url=../inscription.php");
+                            header("Location:../login.php");
             }
-
- if($error){ 
-          echo  "<p class='alert alert-danger text-center'><?php echo $error;?></p>";
-  } 
- else if($success){ 
-         echo  "<p class='alert alert-success text-center'><?php echo $success;?></p>";
- } 
-
  require('../utils/footer.php'); ?>

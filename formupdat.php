@@ -15,36 +15,53 @@ include('utils/validation.php');
      }
 ?>  
 
- <h1 class="text-center col-12 bg-primary py-3 text-white my-2">Edit Info About contact</h1>
-    <div class="col-md-6 offset-md-3">
-        <form class="my-2 p-3 border" id="form_con" method="POST" action="logic/updat.php">
-            <div class="form-group">
-                <label for="fnamecon">Full Name</label>
-                <input type="text" name="fnamecon" class="form-control" id="namecon" value=<?php echo $row['firstname']?> >
-                <input type="hidden" value ="<?php echo $id ?>"  name="id">
-            </div>
-            <div class="form-group">
-                <label for="lnamecon">Full Name</label>
-                <input type="text" name="lnamecon" class="form-control" id="namecon" value=<?php echo $row['lastname']?> >
-                <input type="hidden" value ="<?php echo $id ?>"  name="id">
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" class="form-control" id="email"  value=<?php echo $row['email'] ?>>
-            </div>
-            <div class="form-group">
-                <label for="phone">phone</label>
-                <input type="phone" name="phone" class="form-control" id="phone"  value=<?php echo $row['phone']  ?>>
-            </div>
-            <div class="form-group">
-                <label for="address">address</label>
-                <input type="address" name="address" class="form-control" id="address"  value=<?php echo $row['address']  ?>>
-            </div>
-            <button type="submit" class="btn btn-primary btn-translate" name="submit">Submit</button>
-            <a class="btn btn-primary" href="contact.php">GO Back</a>
-        
-        </form>
-    </div>
-   
-<?php  include('utils/footer.php'); ?>
+<div class="container mt-4">
 
+    <h3 class="text-center bg-primary text-white py-3 rounded mb-4">✏️ Edit Contact Information </h3>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow">
+                <div class="card-body">
+                    <form method="POST" action="logic/updat.php">
+
+                        <input type="hidden" name="id" value="<?= htmlspecialchars($id); ?>">
+                        <div class="mb-3">
+                            <label class="form-label">First Name</label>
+                            <input type="text" name="fnamecon" class="form-control" value="<?= htmlspecialchars($row['firstname']); ?>">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" name="lnamecon"  class="form-control"  value="<?= htmlspecialchars($row['lastname']); ?>">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" value="<?= htmlspecialchars($row['email']); ?>">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Phone</label>
+                            <input type="text" name="phone" class="form-control" value="<?= htmlspecialchars($row['phone']); ?>">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Address</label>
+                            <input type="text" name="address" class="form-control" value="<?= htmlspecialchars($row['address']); ?>">
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-success">  💾 Update  </button>
+                            <a href="contact.php" class="btn btn-secondary"> ⬅️ Go Back  </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<?php include('utils/footer.php'); ?>
