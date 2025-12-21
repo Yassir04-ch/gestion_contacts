@@ -33,13 +33,22 @@ if(!isset($_POST['submit'])) {
                 else 
                 {
                     $error = "Name Must Be Grater Than 3 Chars / Password like Yassir123@";
-                            header("Location:../login.php");
+                     header("Refresh:2;url=../insciption.php");
+
                       
                 }
             }
             else 
             {
                 $error =  "Please Fill All  Fields !";
-                            header("Location:../login.php");
+                header("Refresh:2;url=../insciption.php");
             }
- require('../utils/footer.php'); ?>
+
+
+?>
+
+<?php if($error){ ?>
+            <p class="alert alert-danger text-center"><?php echo $error;?></p>
+ <?php } ?>
+
+<?php  include('../utils/footer.php');

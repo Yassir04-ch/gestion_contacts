@@ -1,5 +1,5 @@
 <?php
-include('../utils/db.php');
+require('../utils/db.php');
 include('../utils/validation.php');
 include('../utils/header.php');
 

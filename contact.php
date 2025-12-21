@@ -56,7 +56,6 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </div>
     <?php endif; ?>
-
 </div>
 
 <?php include('utils/footer.php'); ?>

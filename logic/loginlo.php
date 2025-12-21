@@ -1,6 +1,7 @@
   <?php 
  require('../utils/db.php');
  include('../utils/validation.php');
+ include('../utils/header.php');
  session_start();
 if(!isset($_POST['submit'])){
     header("Location:../login.php");
@@ -37,9 +38,12 @@ if(!isset($_POST['submit'])){
         }
         else{
                $error = "incorect user name or password";
+                header("Refresh:2;url=../login.php");
        }
     } 
 ?>
 <?php if($error){ ?>
             <p class="alert alert-danger text-center"><?php echo $error;?></p>
  <?php } ?>
+
+<?php  include('../utils/footer.php');

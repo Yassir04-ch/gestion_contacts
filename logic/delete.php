@@ -1,5 +1,5 @@
 <?php
-include('../utils/db.php');
+require('../utils/db.php');
 include('../utils/header.php');
 
 if (isset($_GET['id'])) {
