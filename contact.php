@@ -13,9 +13,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2 class="text-primary fw-bold">📇 All Contacts</h2>
-        <a class="btn btn-success shadow-sm" href="addcont.php">
-            ➕ Add Contact
-        </a>
+        <a class="btn btn-success shadow-sm" href="addcont.php"> ➕ Add Contact </a>
     </div>
 
     <?php if ($stmt->rowCount() <= 0): ?>
@@ -40,17 +38,16 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <tbody class="text-center">
                         <?php foreach ($rows as $row): ?>
                             <tr>
-                                <td><?= htmlspecialchars($row['firstname']); ?></td>
-                                <td><?= htmlspecialchars($row['lastname']); ?></td>
-                                <td><?= htmlspecialchars($row['email']); ?></td>
-                                <td><?= htmlspecialchars($row['phone']); ?></td>
-                                <td><?= htmlspecialchars($row['address']); ?></td>
+                                <td><?php echo $row['firstname']; ?></td>
+                                <td><?php echo $row['lastname']; ?></td>
+                                <td><?php echo $row['email']; ?></td>
+                                <td><?php echo $row['phone']; ?></td>
+                                <td><?php echo $row['address']; ?></td>
                                 <td>
                                     <a class="btn btn-outline-primary btn-sm"   href="formupdat.php?id=<?= $row['id']; ?>"> ✏️ Edit </a>
                                 </td>
                                 <td>
-                                    <a  class="btn btn-outline-danger btn-sm btn-delete" href="logic/delete.php?id=<?= $row['id']; ?>"> 🗑 Delete
-                                    </a>
+                                    <a  class="btn btn-outline-danger btn-sm btn-delete" href="logic/delete.php?id=<?= $row['id']; ?>"> 🗑 Delete </a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

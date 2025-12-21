@@ -76,8 +76,7 @@ form_con.addEventListener("submit",function(e){
   }
 })
 
-  const btndel =  document.querySelectorAll('.btn-delete')
-
+const btndel =  document.querySelectorAll('.btn-delete')
 btndel.forEach(function(btn_delete) {
     btn_delete.addEventListener('click', function (e) {
         if (!confirm('Are you sure you want to delete this contact?')) {
